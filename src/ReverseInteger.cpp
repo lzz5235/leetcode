@@ -28,7 +28,8 @@ public:
     		temp = x;
     		while(temp!=0)
     		{	
-    			//
+    			//http://stackoverflow.com/questions/14695118/2147483648-0-returns-true-in-c
+    			//注意int溢出，我们不用和INT_MAX比，跟除去最低位的剩下数字相比就可以了！
     			if(result > INT_MAX/10 || result < INT_MIN/10)
     				return 0;
     			result = result*10 + temp%10;
@@ -54,8 +55,7 @@ public:
 
 int main()
 {
-	Solution solute;
-
+    Solution solute;
     cout << solute.reverse(1534236469) <<endl;
     return 0;
 }
